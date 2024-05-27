@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+House.destroy_all
+
+House.create!(
+  name: movie_data['title'],
+  overview: movie_data['overview'],
+  poster_url: "https://image.tmdb.org/t/p/w500#{movie_data['poster_path']}",
+  rating: movie_data['vote_average']
+)
