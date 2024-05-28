@@ -8,19 +8,49 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-House.destroy_all
+# House.destroy_all
+User.destroy_all
+Category.destroy_all
+
+# seed user
+puts "create user"
+User.create!([
+  { email: 'john@example.com', password: 'password' },
+  { email: 'jane@example.com', password: 'password' }
+])
+puts "created #{User.count} users"
+
+# seed category
+puts "create category"
+[
+  { name: 'T1' },
+  { name: 'T2' },
+  { name: 'T3' }
+].each do |category|
+  Category.create!(name: category[:name])
+end
+puts "created #{Category.count} categories"
 
 # Seed pour les maisons
-houses = House.create!([
+puts "create house"
+House.create!([
   {
     name: 'Villa en bord de mer',
     address: '123 Rue de la Mer',
-    date_debut: '2024-06-01',
-    date_end: '2024-06-15',
     description: 'Une charmante maison située au bord de la plage avec une vue imprenable.',
     price: 5000,
-    category: Categorie.find[1],
-    user: User.find[2]
-  },
-
+    category: Category.first,
+    user: User.first
+  }
 ])
+House.create!([
+  {
+    name: 'Villa en ville',
+    address: '12 Rue du betton',
+    description: 'Une charmante maison vue sur route.',
+    price: 4000,
+    category: Category.last,
+    user: User.last
+  }
+])
+puts "created #{House.count} houses"
