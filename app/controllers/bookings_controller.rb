@@ -36,7 +36,7 @@ class BookingsController < ApplicationController
       # BookingMailer.with(booking: @booking).booking_request.deliver_later
       redirect_to [@house, @booking], notice: 'Booking success, you will received a mail of confirmation.'
     else
-      render :show, status: :unprocessable_entity
+      render "houses/show", status: :unprocessable_entity
     end
   end
 

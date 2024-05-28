@@ -11,14 +11,13 @@
 House.destroy_all
 
 # Seed pour les maisons
-# houses = House.create!([
-#   {
-#     name: 'Villa en bord de mer',
-#     address: '123 Rue de la Mer',
-#     description: 'Une charmante maison située au bord de la plage avec une vue imprenable.',
-#     price: 5000,
-#     category: Category.find(1),
-#     user: User.find(2)
-#   },
-
-# ])
+House.create!([
+  {
+    name: 'Villa en bord de mer',
+    address: '123 Rue de la Mer',
+    description: 'Une charmante maison située au bord de la plage avec une vue imprenable.',
+    price: 5000,
+    category: Category.find(1),
+    user: User.find(2)
+  }
+])
