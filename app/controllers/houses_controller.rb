@@ -1,5 +1,5 @@
 class HousesController < ApplicationController
-  before_action :set_house, only: [:show]
+  before_action :set_house, only: [:show, :destroy]
 
   # get "houses/"
   def index
@@ -28,6 +28,12 @@ class HousesController < ApplicationController
     else
       render(:new, status: :unprocessable_entity)
     end
+  end
+
+  # post "houses/:id"
+  def destroy
+    @house.destroy
+    redirect_to(root_path)
   end
 
   private
