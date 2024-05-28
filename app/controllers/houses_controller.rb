@@ -1,17 +1,18 @@
 class HousesController < ApplicationController
+  before_action :set_house, only: [:show]
 
-  before_action :id_house, only: [:show]
   # get "houses/:id"
   def show
     @booking = Booking.new
   end
 
   def index
+    @houses = House.all
   end
 
   private
 
-  def id_house
+  def set_house
     @house = House.find(params[:id])
   end
 
