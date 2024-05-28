@@ -14,7 +14,20 @@ class HousesController < ApplicationController
   # get "houses/new"
   def new
     @house = House.new
-    raise
+    user = User.all.sample
+    @house.user = user
+  end
+
+  # post "houses/new"
+  def create
+    @house = House.new(house_params)
+    user = User.all.sample
+    @house.user = user
+    if @house.save
+      redirect_to(house_path(@house))
+    else
+      render(:new, status: :unprocessable_entity)
+    end
   end
 
   private
@@ -24,6 +37,6 @@ class HousesController < ApplicationController
   end
 
   def house_params
-    params.require(:house).permit(:name, :address, :date_debut, :date_end, :description, :price, :category_id, images: [])
+    params.require(:house).permit(:name, :address, :description, :price, :user_id, :category_id, images: [])
   end
 end
