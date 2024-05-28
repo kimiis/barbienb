@@ -1,3 +1,7 @@
-<h1>Your reservation</h1>
-<p>Thanks for your booking, <%= @booking.user.name %> !</p>
-<p>We've received your booking request, we will answer it as soon as possible.</p>
+<h1>Booking Confirmation</h1>
+    <p>Dear <%= @user.name %>,</p>
+    <p>Your booking request for <%= @house.name %> has been received.</p>
+    <p>Arrival Date: <%= @booking.arrival_date %></p>
+    <p>Departure Date: <%= @booking.departure_date %></p>
+    <p>We will contact you shortly with more details.</p>
+    <p>Thank you for using our service!</p>

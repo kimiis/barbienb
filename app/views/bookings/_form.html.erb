@@ -1,0 +1,25 @@
+<%= simple_form_for [@house, @booking], url: house_bookings_path(@house) do |f| %>
+  <div class="card-reservation">
+    <div class="house-price">
+      <strong>Price:</strong>
+      <div><%= @house.price %> €/nuit</div>
+    </div>
+
+    <div class="house-date-reservation">
+      <div>
+          <%= f.input :arrival_date, label: "Arrived", as: :date %>
+      </div>
+      <div>
+        <%= f.input :departure_date, label: "Departure", as: :date %>
+      </div>
+
+      <div class="total_price_booking">
+        <div>Faire du javascript pour afficher de façon dynamique le prix selon la durée du séjour</div>
+      </div>
+    </div>
+
+    <div class="btn-reservation">
+      <%= f.submit "Booking" %>
+    </div>
+  </div>
+<% end %>

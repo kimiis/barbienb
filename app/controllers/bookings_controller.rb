@@ -1,10 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :booking_id, only: %i[show destroy]
+  before_action :booking_id, only: [:show, :cancel]
   before_action :authenticate_user!
 
   # get "/"
   def index
-
   end
 
   # get "bookings/new"
@@ -12,20 +11,41 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
-  # post
+  # post "bookings"
+  # pour créer un booking j'ai besoin de price_total, id_house et id_user
+  # @booking je récupre house id, arrival date et departure date
   def create
+    @house = House.find(params[:house_id])
     @booking = Booking.new(bookings_params)
-    if @booking.save
-      BookingMailer.with(booking: @booking).booking_request.deliver_later
-      redirect_to confirmation_booking_path(@booking), notice: 'Booking success, you will received a mail of confirmation.'
+    # association de house récupéré à au booking nouvellement crée, ça relie le booking a une house spécifique
+    @booking.house = @house
+    # association d'un userà cette réservation
+    @booking.user = current_user
+    #association du status du booking
+    @booking.status = "Pending host validation"
+
+    # check si date arrivé et départ sont présent si oui, calcule du prix du séjours
+    if @booking.arrival_date && @booking.departure_date
+      nights = (@booking.departure_date - @booking.arrival_date).to_i
+      @booking.price_total = nights * @house.price
     else
-      render :new, status: :unprocessable_entity
+      @booking.price_total = 0
+    end
+
+    if @booking.save
+      raise
+      # BookingMailer.with(booking: @booking).booking_request.deliver_later
+      redirect_to bookings_show_path(@booking), notice: 'Booking success, you will received a mail of confirmation.'
+    else
+      raise
+      render :show, status: :unprocessable_entity
     end
   end
 
+  # PATCH "bookings/:id/cancel"
   def cancel
-    if @booking.status == 'pending'
-      @booking.update(status: 'cancelled')
+    if @booking.status == 'Pending host validation'
+      @booking.update(status: 'Canceled')
       redirect_to bookings_path, notice: 'Your reservation has been canceled successfully.'
     else
       redirect_to bookings_path, alert: 'You cannot abord this booking.'
@@ -36,7 +56,7 @@ class BookingsController < ApplicationController
   private
 
   def bookings_params
-    params.require(:booking).permit(:date_debut, :date_end)
+    params.require(:booking).permit(:arrival_date, :departure_date, :price_total, :tenant_comment, :owner_comment, :status, :house_id, :user_id)
   end
 
   def booking_id
