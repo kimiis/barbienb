@@ -1,0 +1,11 @@
+<h1>DASHBOARD</h1>
+<%# utiliser current_user %>
+<ul>
+  <% @bookings.each do |booking| %>
+  <li><%= booking.house.name %></li>
+  <li>Arrivée : <%= booking.arrival_date %></li>
+  <li>Départ : <%= booking.departure_date %></li>
+  <li>Statut : <%= booking.status %></li>
+  <li>Price : <%= booking.price_total %> €</li>
+  <% end %>
+</ul>
