@@ -1,16 +1,12 @@
 class Booking < ApplicationRecord
+  attr_accessor :price_total
+
   belongs_to :house
   belongs_to :user
 
-  validates :name, presence: true
-  validates :status, inclusion: { in: %w[pending confirmed cancelled] }
+  validates :status, inclusion: { in: ["Pending host validation", "Confirmed", "Canceled"] }
+  validates :arrival_date, presence: true
+  validates :departure_date, presence: true
+  validates :price_total, numericality: { greater_than_or_equal_to: 0 }
 
-  # on définit la valeur par défaut pour le statut a pending grâce à la méthode set_defaut_status
-  after_initialize :set_default_status, if: :new_record?
-
-  private
-
-  def set_default_status
-    self.status ||= 'pending'
-  end
 end

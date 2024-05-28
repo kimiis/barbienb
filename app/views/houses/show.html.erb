@@ -1,2 +1,28 @@
-<h1><%= @house.name %></h1> 
-<p>Find me in app/views/houses/show.html.erb</p>
+
+<div class="house-container">
+  <h1><%= @house.name %></h1>
+
+  <div class="house-images">
+    <% if @house.images.attached? %>
+      <h3>Images:</h3>
+      <% @house.images.each do |image| %>
+        <%= image_tag image %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="house-address">
+    <strong>Address:</strong>
+    <div> <%= @house.address %> </div>
+  </div>
+
+  <div class=".house-description">
+    <strong>Description:</strong>
+    <div> <%= @house.description %></div>
+  </div>
+
+ <%= render 'bookings/form', house: @house, booking: @booking %>
+
+</div>
+
+<%= link_to 'Back', root_path %>
