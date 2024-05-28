@@ -1,9 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :booking_id, only: [:show, :cancel]
+  before_action :set_booking, only: [:show, :cancel]
   before_action :authenticate_user!
 
   # get "/"
   def index
+    @booking = Booking.all
   end
 
   # get "bookings/new"
@@ -19,7 +20,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
     # association de house récupéré à au booking nouvellement crée, ça relie le booking a une house spécifique
     @booking.house = @house
-    # association d'un userà cette réservation
+    # association d'un user à cette réservation
     @booking.user = current_user
     #association du status du booking
     @booking.status = "Pending host validation"
@@ -50,14 +51,13 @@ class BookingsController < ApplicationController
     end
   end
 
-
   private
 
   def bookings_params
     params.require(:booking).permit(:arrival_date, :departure_date, :price_total, :tenant_comment, :owner_comment, :status, :house_id, :user_id)
   end
 
-  def booking_id
+  def set_booking
     @booking = Booking.find(params[:id])
   end
 end
