@@ -1,12 +1,19 @@
 class HousesController < ApplicationController
 
   before_action :id_house, only: [:show]
+  # get "houses/"
+  def index
+  end
+
   # get "houses/:id"
   def show
     @booking = Booking.new
   end
 
-  def index
+  # get "houses/new"
+  def new
+    @house = House.new
+    raise
   end
 
   private
