@@ -7,11 +7,20 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
 House.destroy_all
 
-House.create!(
-  name: movie_data['title'],
-  overview: movie_data['overview'],
-  poster_url: "https://image.tmdb.org/t/p/w500#{movie_data['poster_path']}",
-  rating: movie_data['vote_average']
-)
+# Seed pour les maisons
+# houses = House.create!([
+#   {
+#     name: 'Belle maison à la campagne',
+#     address: '123 Rue de la Campagne',
+#     date_debut: '2024-06-01',
+#     date_end: '2024-06-15',
+#     description: 'Une charmante maison située dans la campagne avec une vue imprenable.',
+#     price: 1000,
+#     category: Categorie.find[1],
+#     user: User.find[1]
+#   },
+
+# ])
