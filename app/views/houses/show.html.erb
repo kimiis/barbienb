@@ -20,8 +20,9 @@
     <strong>Description:</strong>
     <div> <%= @house.description %></div>
   </div>
-
- <%= render 'bookings/form', house: @house, booking: @booking %>
+  <div class="card-booking"  data-controller="booking-card" >
+    <%= render 'bookings/form', house: @house, booking: @booking %>
+  </div>
 
 </div>
 

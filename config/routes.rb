@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'houses/show'
-  get 'houses/index'
-  get 'bookings/show'
-  get 'bookings/index'
-  get 'bookings/create'
+
   devise_for :users
   root to: "houses#index"
   resources :houses, only: %i[new create show] do
