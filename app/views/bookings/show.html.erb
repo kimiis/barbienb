@@ -1,3 +1,13 @@
 
 show de booking
 <p>Find me in app/views/bookings/show.html.erb</p>
+
+<ul>
+  <li><%= @booking.id %></li>
+  <li><%= @booking.status %></li>
+  <li><%= @booking.tenant_comment %></li>
+  <li><%= @booking.owner_comment %></li>
+  <li><%= @booking.price_total %></li>
+</ul>
+
+<%= link_to 'Back to home page', root_path %>
