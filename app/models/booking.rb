@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-  attr_accessor :price_total
+  # attr_accessor :price_total
 
   belongs_to :house
   belongs_to :user
