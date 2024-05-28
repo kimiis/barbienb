@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :houses, only: %i[new create show] do
     resources :bookings, only: %i[new create show]
   end
+  resources :bookings, only: %i[index show]
 end
