@@ -20,11 +20,14 @@
     <strong>Description:</strong>
     <div> <%= @house.description %></div>
   </div>
-  
-  <div class="card-booking"  data-controller="booking-card" >
+
+  <div class="card-booking"  data-controller="display-booking-price" >
     <%= render 'bookings/form', house: @house, booking: @booking %>
   </div>
 
+
 </div>
+
+
 
 <%= link_to 'Back', root_path %>
