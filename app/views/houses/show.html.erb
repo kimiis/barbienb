@@ -20,7 +20,7 @@
     <strong>Description:</strong>
     <div> <%= @house.description %></div>
   </div>
-  
+
   <div class="card-booking"  data-controller="booking-card" >
     <%= render 'bookings/form', house: @house, booking: @booking %>
   </div>
@@ -28,3 +28,4 @@
 </div>
 
 <%= link_to 'Back', root_path %>
+<%= link_to 'Delete', house_path(@house), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
