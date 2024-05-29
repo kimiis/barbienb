@@ -8,13 +8,13 @@ class House < ApplicationRecord
 
   validates :name, presence: true
   validates :address, presence: true
-  validates :guest, presence: true, numericality: { only_integer: true }
+  validates :description, presence: true
   validates :category, presence: true
+
+  validates :guest, presence: true, numericality: { only_integer: true }
   validates :bath, presence: true, numericality: { only_integer: true }
   validates :bed, presence: true, numericality: { only_integer: true }
   validates :bedroom, presence: true, numericality: { only_integer: true }
-  validates :pet, presence: true
-  validates :description, presence: true
   validates :price, presence: true, numericality: { only_integer: true }
 
 end

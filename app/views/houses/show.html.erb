@@ -3,9 +3,8 @@
 
 <div class="house-images">
   <% if @house.images.attached? %>
-    <h3>Images:</h3>
     <% @house.images.each do |image| %>
-      <%= image_tag image %>
+      <%= cl_image_tag  image.key  %>
     <% end %>
   <% end %>
 </div>*
