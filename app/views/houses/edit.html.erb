@@ -2,6 +2,7 @@
   <%= f.input(:name) %>
   <%= f.input(:address) %>
   <%= f.input(:description) %>
+  <%= f.input :images, as: :file, input_html: { multiple: true } %>
   <%= f.input(:price, input_html: {type: 'number'}) %>
   <%= f.association(:category) %>
   <%= f.submit %>
