@@ -2,3 +2,8 @@ body{
   background: rgb(238,174,202);
   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
+
+.house-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
