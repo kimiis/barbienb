@@ -54,7 +54,9 @@ class BookingsController < ApplicationController
   private
 
   def bookings_params
-    params.require(:booking).permit(:arrival_date, :departure_date, :price_total, :tenant_comment, :owner_comment, :status, :house_id, :user_id)
+    params.require(:booking).permit(
+      :arrival_date, :departure_date, :price_total, :tenant_comment,
+      :owner_comment, :status, :house_id, :user_id, :guest, :pet)
   end
 
   def set_booking

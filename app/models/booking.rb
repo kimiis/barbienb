@@ -8,6 +8,8 @@ class Booking < ApplicationRecord
   validates :departure_date, presence: true
   validates :price_total, numericality: { greater_than_or_equal_to: 0 }
   validate :dates_are_valid
+  validates :guest, numericality: { only_integer: true, greater_than: 0 }
+  validates :pet, inclusion: { in: [true, false] }
 
   private
 
