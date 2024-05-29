@@ -7,3 +7,30 @@ body{
   display: grid;
   grid-template-columns: repeat(2,1fr);
 }
+
+.house-images{
+  margin: 5rem;
+  margin-left: 8rem;
+}
+
+.house-date-reservation{
+  width: 20rem;
+}
+
+.card-reservation{
+  background-color: pink;
+  width: 30rem;
+
+}
+
+.house-container-description{
+  margin-left: 5rem;
+}
+
+.house-address{
+  margin-left: 4rem;
+}
+
+span{
+  margin-left: 5rem;
+}
