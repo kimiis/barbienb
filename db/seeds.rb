@@ -40,17 +40,42 @@ House.create!([
     description: 'Une charmante maison située au bord de la plage avec une vue imprenable.',
     price: 5000,
     category: Category.first,
-    user: User.first
-  }
-])
-House.create!([
+    user: User.first,
+    guest: 2,
+    pet: true,
+    bath:1,
+    bed:1,
+    bedroom:1
+  },
+
+  {
+    name: 'Studio très moche',
+    address: '123 Rue des moches',
+    description: "Un studio située au bord de la plage avec une vue d'ivrogne.",
+    price: 5000,
+    category: Category.first,
+    user: User.first,
+    guest: 4,
+    pet: true,
+    bath:1,
+    bed:1,
+    bedroom:2
+  },
+
   {
     name: 'Villa en ville',
     address: '12 Rue du betton',
     description: 'Une charmante maison vue sur route.',
     price: 4000,
     category: Category.last,
-    user: User.last
+    user: User.last,
+    guest: 4,
+    pet: false,
+    bath:1,
+    bed:1,
+    bedroom:2,
+
   }
 ])
+
 puts "created #{House.count} houses"

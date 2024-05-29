@@ -5,5 +5,12 @@
   <%= f.input :images, as: :file, input_html: { multiple: true } %>
   <%= f.input(:price, input_html: {type: 'number'}) %>
   <%= f.association(:category) %>
+
+  <%= f.input :pet, as: :boolean, label: "Allow Pets?" %>
+  <%= f.input :guest, input_html: { type: 'number', min: 1 } %>
+  <%= f.input :bed, input_html: { type: 'number', min: 0 } %>
+  <%= f.input :bedroom, input_html: { type: 'number', min: 0 } %>
+  <%= f.input :bath, input_html: { type: 'number', min: 0 } %>
+  
   <%= f.submit %>
 <% end %>
