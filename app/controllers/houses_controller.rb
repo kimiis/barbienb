@@ -1,5 +1,5 @@
 class HousesController < ApplicationController
-  before_action :set_house, only: [:show, :destroy]
+  before_action :set_house, only: %i[show destroy edit update]
 
   # get "houses/"
   def index
@@ -42,6 +42,17 @@ class HousesController < ApplicationController
   def destroy
     @house.destroy
     redirect_to(root_path)
+  end
+
+  def edit
+  end
+
+  def update
+    if @house.update(house_params)
+      redirect_to(house_path(@house))
+    else
+      render(:new, status: :unprocessable_entity)
+    end
   end
 
   private

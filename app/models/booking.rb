@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :house
   belongs_to :user
 
-  validates :status, inclusion: { in: ["Pending host validation", "Confirmed", "Canceled"] }
+  validates :status, inclusion: { in: ["Pending host validation", "Confirmed", "Canceled","Refused"] }
   validates :arrival_date, presence: true
   validates :departure_date, presence: true
   validates :price_total, numericality: { greater_than_or_equal_to: 0 }
