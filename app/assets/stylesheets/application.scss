@@ -10,3 +10,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/map";
+
+// MapBox
+@import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  padding: 10px;
+}

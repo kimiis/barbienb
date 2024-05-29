@@ -1,0 +1,17 @@
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  a {
+    text-decoration: none;
+    color: pink;
+  }
+}
+
+.no-bullets {
+  list-style-type: none;
+}
+
