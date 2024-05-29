@@ -2,6 +2,7 @@
 <p>Find me in app/views/houses/index.html.erb</p>
 
 <ul>
+  
   <% @houses.each do |house| %>
   <li><%= link_to(house.name, house_path(house.id )) %></li>
   <% end %>

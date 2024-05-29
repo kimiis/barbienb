@@ -15,7 +15,7 @@ class Booking < ApplicationRecord
 
   def dates_are_valid
     if arrival_date.present? && departure_date.present?
-      if arrival_date.strftime("%d/%m/%Y") >= departure_date.strftime("%d/%m/%Y")
+      if arrival_date >= departure_date
         errors.add(:arrival_date, "must be before the departure date")
       end
       if arrival_date < Date.today
