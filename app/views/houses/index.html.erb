@@ -6,7 +6,7 @@
     <div class="card" style="width: 18rem;">
       <%= cl_image_tag house.images[0].key %>
       <div class="card-body">
-        <h5 class="card-title"><li><%= link_to(house.name, house_path(house.id )) %></li></h5>
+        <h5 class="card-title"><%= link_to(house.name, house_path(house.id )) %></h5>
         <p class="card-text"><%= house.description %></p>
         <%= link_to("Voir plus", house_path(house.id), class: "btn btn-primary")%>
       </div>
