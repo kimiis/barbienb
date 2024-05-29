@@ -7,5 +7,6 @@
   <li>Départ : <%= booking.departure_date %></li>
   <li>Statut : <%= booking.status %></li>
   <li>Price : <%= booking.price_total %> €</li>
+  <li>Annuler : <%= link_to 'Cancel', booking_path(booking), data: {turbo_method: :patch, turbo_confirm: 'Are you sure?'} %></li>
   <% end %>
 </ul>
