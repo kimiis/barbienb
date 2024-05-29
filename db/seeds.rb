@@ -35,18 +35,42 @@ puts "created #{Category.count} categories"
 puts "create house"
 House.create!([
   {
-    name: 'Villa en bord de mer',
-    address: '123 Rue de la Mer',
-    description: 'Une charmante maison située au bord de la plage avec une vue imprenable.',
-    price: 5000,
-    category: Category.first,
-    user: User.first
-  }
-])
-House.create!([
-  {
     name: 'Villa en ville',
     address: '12 Rue du betton',
+    bedroom: 2,
+    bed: 2,
+    bath: 2,
+    pet: 2,
+    pool: 2,
+    guest: 2,
+    description: 'Une charmante maison vue sur route.',
+    price: 4000,
+    category: Category.last,
+    user: User.last
+  },
+  {
+    name: 'Villa en bord de mer',
+    address: '12 Rue du betton',
+    bedroom: 2,
+    bed: 2,
+    bath: 2,
+    pet: 2,
+    pool: 2,
+    guest: 2,
+    description: 'Une charmante maison vue sur route.',
+    price: 4000,
+    category: Category.last,
+    user: User.last
+  },
+  {
+    name: 'Villa en bord de plage jaune',
+    address: '12 Rue du betton',
+    bedroom: 2,
+    bed: 2,
+    bath: 2,
+    pet: 2,
+    pool: 2,
+    guest: 2,
     description: 'Une charmante maison vue sur route.',
     price: 4000,
     category: Category.last,
