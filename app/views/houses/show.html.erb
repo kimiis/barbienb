@@ -39,8 +39,7 @@
     </span>
 
     <div class=".house-description">
-      <strong>Description:</strong>
-      <div> <%= @house.description %></div>
+        <%= content_tag :div, @house.description, class: "description-text" %>  
     </div>
 
     </div>
