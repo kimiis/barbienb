@@ -72,14 +72,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_113412) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.float "latitude"
+    t.float "longitude"
     t.integer "guest"
     t.integer "bedroom"
     t.integer "bed"
     t.integer "bath"
     t.integer "pool"
     t.boolean "pet"
-    t.float "latitude"
-    t.float "longitude"
     t.index ["category_id"], name: "index_houses_on_category_id"
     t.index ["user_id"], name: "index_houses_on_user_id"
   end
