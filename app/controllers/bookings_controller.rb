@@ -43,6 +43,7 @@ class BookingsController < ApplicationController
 
   # PATCH "bookings/:id/cancel"
   def cancel
+    raise
     if @booking.status == 'Pending host validation'
       @booking.update(status: 'Canceled')
       redirect_to bookings_path, notice: 'Your reservation has been canceled successfully.'
