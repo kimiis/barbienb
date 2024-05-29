@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_29_092333) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_29_113412) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,7 +46,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_092333) do
   create_table "bookings", force: :cascade do |t|
     t.string "tenant_comment"
     t.string "owner_comment"
-    t.integer "price"
     t.bigint "house_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -54,6 +54,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_092333) do
     t.date "arrival_date"
     t.date "departure_date"
     t.integer "price_total"
+    t.integer "guest"
+    t.boolean "pet"
     t.index ["house_id"], name: "index_bookings_on_house_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -73,8 +75,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_092333) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+
     t.float "latitude"
     t.float "longitude"
+    t.integer "guest"
+    t.integer "bedroom"
+    t.integer "bed"
+    t.integer "bath"
+    t.integer "pool"
+    t.boolean "pet"
     t.index ["category_id"], name: "index_houses_on_category_id"
     t.index ["user_id"], name: "index_houses_on_user_id"
   end

@@ -1,11 +1,10 @@
-<h1>index house</h1>
-<p>Find me in app/views/houses/index.html.erb</p>
-
+<h1> Houses</h1>
 <ul>
   <% @houses.each do |house| %>
   <li><%= link_to(house.name, house_path(house.id )) %></li>
   <% end %>
 </ul>
+
 
 <%= link_to 'dashboard', dashboards_path %>
 
@@ -13,3 +12,4 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+

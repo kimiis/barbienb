@@ -1,33 +1,56 @@
 
-<div class="house-container">
-  <h1><%= @house.name %></h1>
+<h1><%= @house.name %></h1>
 
-  <div class="house-images">
-    <% if @house.images.attached? %>
-      <h3>Images:</h3>
-      <% @house.images.each do |image| %>
-        <%= image_tag image %>
-      <% end %>
+<div class="house-images">
+  <% if @house.images.attached? %>
+    <h3>Images:</h3>
+    <% @house.images.each do |image| %>
+      <%= image_tag image %>
     <% end %>
-  </div>
+  <% end %>
+</div>*
 
-  <div class="house-address">
-    <strong>Address:</strong>
-    <div> <%= @house.address %> </div>
-  </div>
+<div class="house-container">
 
-  <div class=".house-description">
-    <strong>Description:</strong>
-    <div> <%= @house.description %></div>
-  </div>
+  <div class="house-container-description">
 
-  <div class="card-booking"  data-controller="display-booking-price" >
-    <%= render 'bookings/form', house: @house, booking: @booking %>
-  </div>
+    <div class="house-address">
+      <strong>Address:</strong>
+      <div> <%= @house.address %> </div>
+    </div>
 
+    <span class="house-guest">
+      <%= @house.guest %> Guest
+    </span>
+
+    <span class="house-bedroom">
+      <%= @house.bedroom %> Bedroom
+    </span>
+
+    <span class="house-bed">
+      <%= @house.bed %> Bed
+    </span>
+
+    <span class="house-bath">
+      <%= @house.bath %> Bath
+    </span>
+
+    <span class="house-pet">
+      <%= @house.pet %> Pet
+    </span>
+
+    <div class=".house-description">
+      <strong>Description:</strong>
+      <div> <%= @house.description %></div>
+    </div>
+
+    </div>
+
+    <div class="card-booking"  data-controller="display-booking-price" >
+      <%= render 'bookings/form', house: @house, booking: @booking %>
+    </div>
 
 </div>
-
 
 
 <%= link_to 'Back', root_path %>
