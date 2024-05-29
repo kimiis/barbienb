@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# House.destroy_all
+House.destroy_all
 User.destroy_all
 Category.destroy_all
 
@@ -23,9 +23,9 @@ puts "created #{User.count} users"
 # seed category
 puts "create category"
 [
-  { name: 'T1' },
-  { name: 'T2' },
-  { name: 'T3' }
+  { name: 'Villa' },
+  { name: 'Studio' },
+  { name: 'Maison' }
 ].each do |category|
   Category.create!(name: category[:name])
 end
@@ -33,7 +33,7 @@ puts "created #{Category.count} categories"
 
 # Seed pour les maisons
 puts "create house"
-House.create!([
+[
   {
     name: 'Villa en bord de mer',
     address: '123 Rue de la Mer',
@@ -76,6 +76,10 @@ House.create!([
     bedroom:2,
 
   }
-])
+].each do |option|
+  house = House.new(option)
+  house.images.attach(io: File.open("app/assets/images/BarbieBeachHouse.jpg"), filename: "BarbieBeachHouse.jpg", content_type: "image/jpg")
+  house.save!
+end
 
 puts "created #{House.count} houses"
