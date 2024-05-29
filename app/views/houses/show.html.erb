@@ -4,7 +4,7 @@
 <div class="house-images">
   <% if @house.images.attached? %>
     <% @house.images.each do |image| %>
-      <%= cl_image_tag  image.key  %>
+      <%= cl_image_tag  image.key , class: "carrousel-image-booking" %>
     <% end %>
   <% end %>
 </div>*
