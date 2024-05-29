@@ -17,13 +17,13 @@
 
       <%# data-price-per-night utilisé pour transmettre le prix par nuit de votre code côté serveur  %>
       <div class="total_price_booking" data-display-booking-price-target="totalPrice"  data-price-per-night="<%= @house.price %>">
-        Total Price: $0.00
+        Total Price: 0.00€
       </div>
 
       <div class="tenant-comment">
         <%= f.input :tenant_comment %>
       </div>
-      
+
       <div class="btn-reservation">
         <%= f.submit "Booking" %>
       </div>
