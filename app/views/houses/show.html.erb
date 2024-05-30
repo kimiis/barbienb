@@ -1,58 +1,53 @@
-
-<h1><%= @house.name %></h1>
-
-<div class="container-house-image">
-  <%# <div class="container"> %>
-    <% if @house.images.attached? %>
-      <% @house.images.each do |image| %>
-        <div class="image">
-          <%= cl_image_tag(image.key, class: "carrousel-image-booking") %>
+<div class="show-container">
+  <div class="house-content">
+    <h1><%= @house.name %></h1>
+    <div class="container-house-image">
+      <%# <div class="container"> %>
+        <% if @house.images.attached? %>
+          <% @house.images.each do |image| %>
+            <div class="main-image">
+              <%= cl_image_tag(image.key, class: "carrousel-image-booking") %>
+            </div>
+            <div class="secondary-images">
+              <%= cl_image_tag(image.key, class: "carrousel-image-booking") %>
+              <%= cl_image_tag(image.key, class: "carrousel-image-booking") %>
+              <%= cl_image_tag(image.key, class: "carrousel-image-booking") %>
+              <%= cl_image_tag(image.key, class: "carrousel-image-booking") %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="house-main">
+        <div class="house-data">
+        <hr>
+        <p class="house-host">
+          <i class="fa-solid fa-user"></i><%= @house.user.username %>Username
+        </p>
+        <hr>
+        <div class=".house-description">
+          <%= content_tag :div, @house.description, class: "description-text" %>
         </div>
-      <% end %>
-    <% end %>
-  </div>
+          <p><%= @house.address %></p>
+          <div class="specifications">
+            <p><i class="fa-solid fa-person"></i> <%= @house.guest %></p>
+            <p><i class="fa-solid fa-person-booth"></i> <%= @house.bedroom %></p>
+            <p><i class="fa-solid fa-bed"></i> <%= @house.bed %></p>
+            <p><i class="fa-solid fa-bath"></i> <%= @house.bath %></p>
+            <p><i class="fa-solid fa-dog"></i> <%= @house.pet ? "Oui" : "Non" %></p>
+          </div>
+        </div>
+        <div class="booking-form"  data-controller="display-booking-price" >
+          <%= render 'bookings/form', house: @house, booking: @booking %>
+        </div>
+      </div>
+</div>
+</div>
+
 <%# </div> %>
 
 
 <div class="house-container">
 
-  <div class="house-container-description">
 
-    <div class="house-address">
-      <div> <%= @house.address %> </div>
-    </div>
-
-    <div class="span-house">
-
-        <span class="house-guest">
-          <%= @house.guest %> Guest
-        </span>
-
-        <span class="house-bedroom">
-          <%= @house.bedroom %> Bedroom
-        </span>
-
-        <span class="house-bed">
-          <%= @house.bed %> Bed
-        </span>
-
-        <span class="house-bath">
-          <%= @house.bath %> Bath
-        </span>
-
-        <span class="house-pet">
-          <%= @house.pet %> Pet
-        </span>
-    </div>
-
-    <div class=".house-description">
-        <%= content_tag :div, @house.description, class: "description-text" %>  
-    </div>
-
-    </div>
-
-    <div class="card-booking"  data-controller="display-booking-price" >
-      <%= render 'bookings/form', house: @house, booking: @booking %>
-    </div>
 
 </div>

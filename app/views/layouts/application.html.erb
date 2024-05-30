@@ -1,44 +1,44 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Barbienb</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Barbienb</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <%= javascript_importmap_tags %>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-  </head>
+    </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <body>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <nav class="menu-burger">
-      <%= link_to root_path do %>
-        <%= image_tag "barbie_nb_logo.png", class: "logo-nav" %>
-      <% end %>
+      <nav class="menu-burger">
+        <%= link_to root_path do %>
+          <%= image_tag "barbie_nb_logo.png", class: "logo-nav" %>
+        <% end %>
 
-      <div class="menu-icon">
-        <input type="checkbox"/>
-        <span></span>
-        <span></span>
-        <span></span>
-        <ul id="menu-links" class="menu-links">
-          <li><%= link_to 'HOME', root_path %> </li>
-          <li><%= link_to 'DASHBOARD', dashboards_path %> </li>
-          <li><%= link_to 'SIGN IN / UP',  new_user_session_path %></li>
-          <li><%= link_to 'SIGN OUT', destroy_user_session_path, data: {turbo_method: :delete}%></li>
-        </ul>
-      </div>
-      <div class="hosting-link"><%= link_to 'HOSTING',  new_house_path, class: "link-hosting" %></div>
-    </nav>
+        <div class="menu-icon">
+          <input type="checkbox"/>
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu-links" class="menu-links">
+            <li><%= link_to 'HOME', root_path %> </li>
+            <li><%= link_to 'DASHBOARD', dashboards_path %> </li>
+            <li><%= link_to 'SIGN IN / UP',  new_user_session_path %></li>
+            <li><%= link_to 'SIGN OUT', destroy_user_session_path, data: {turbo_method: :delete}%></li>
+          </ul>
+        </div>
+        <div class="hosting-link"><%= link_to 'HOSTING',  new_house_path, class: "link-hosting" %></div>
+      </nav>
 
-    <%= yield %>
-  </body>
-</html>
+      <%= yield %>
+    </body>
+  </html>
