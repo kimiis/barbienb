@@ -1,42 +1,49 @@
 
 <h1><%= @house.name %></h1>
 
-<div class="house-images">
-  <% if @house.images.attached? %>
-    <% @house.images.each do |image| %>
-      <%= cl_image_tag  image.key , class: "carrousel-image-booking" %>
+<div class="container-house-image">
+  <%# <div class="container"> %>
+    <% if @house.images.attached? %>
+      <% @house.images.each do |image| %>
+        <div class="image">
+          <%= cl_image_tag(image.key, class: "carrousel-image-booking") %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<%# </div> %>
+
 
 <div class="house-container">
 
   <div class="house-container-description">
 
     <div class="house-address">
-      <strong>Address:</strong>
       <div> <%= @house.address %> </div>
     </div>
 
-    <span class="house-guest">
-      <%= @house.guest %> Guest
-    </span>
+    <div class="span-house">
 
-    <span class="house-bedroom">
-      <%= @house.bedroom %> Bedroom
-    </span>
+        <span class="house-guest">
+          <%= @house.guest %> Guest
+        </span>
 
-    <span class="house-bed">
-      <%= @house.bed %> Bed
-    </span>
+        <span class="house-bedroom">
+          <%= @house.bedroom %> Bedroom
+        </span>
 
-    <span class="house-bath">
-      <%= @house.bath %> Bath
-    </span>
+        <span class="house-bed">
+          <%= @house.bed %> Bed
+        </span>
 
-    <span class="house-pet">
-      <%= @house.pet %> Pet
-    </span>
+        <span class="house-bath">
+          <%= @house.bath %> Bath
+        </span>
+
+        <span class="house-pet">
+          <%= @house.pet %> Pet
+        </span>
+    </div>
 
     <div class=".house-description">
         <%= content_tag :div, @house.description, class: "description-text" %>  
@@ -49,7 +56,3 @@
     </div>
 
 </div>
-
-
-<%= link_to 'Back', root_path %>
-<%= link_to 'Delete', house_path(@house), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
