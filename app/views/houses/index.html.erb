@@ -1,14 +1,18 @@
 
 <div class="container-home">
-  <div class="card container" data-controller="redirect-to-show">
+  <div class="card-container">
     <% @houses.each do |house| %>
-       <div class="card" data-url="<%= house_path(house.id) %>">
-        <%= cl_image_tag house.images[0].key, data: { action: "click->redirect-to-show#navigate" } %>
+      <div class="card">
+        <%= link_to house_path(house.id) do %>
+          <%= cl_image_tag house.images[0].key, class: "house-image" %>
+        <% end %>
+
         <div class="card-body">
           <h5 class="card-title"><%= link_to(house.name, house_path(house.id )) %></h5>
-          <p><%= house.user.username %></p>
-          <p><%= house.price%> €/nuit</p>
+          <p>Host :<%= house.user.username %></p>
+          <p><%= house.price%> €/per night</p>
         </div>
+
       </div>
     <% end %>
   </div>

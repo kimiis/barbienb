@@ -1,4 +1,5 @@
 class HousesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_house, only: %i[show destroy edit update]
 
   # get "houses/"
@@ -24,15 +25,13 @@ class HousesController < ApplicationController
   # get "houses/new"
   def new
     @house = House.new
-    user = User.all.sample
-    @house.user = user
+    @house.user = current_user
   end
 
   # post "houses/new"
   def create
     @house = House.new(house_params)
-    user = User.all.sample
-    @house.user = user
+    @house.user = current_user
     if @house.save
       redirect_to(house_path(@house))
     else
