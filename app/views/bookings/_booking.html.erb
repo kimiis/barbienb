@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-header">
+    <%= booking.house.name %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Status : <%= booking.status %></h5>
+    <p class="card-text">Arrival : <%= booking.arrival_date %></p>
+    <p class="card-text">Departure : <%= booking.departure_date %></p>
+    <p class="card-text">Price : <%= booking.price_total %></p>
+    <p class="card-text">Guests : <%= booking.guest %></p>
+    <p class="card-text">Animals : <%= booking.pet %></p>
+    <%= link_to "See more", booking.house %>
+  </div>
+</div>

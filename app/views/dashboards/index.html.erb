@@ -1,12 +1,30 @@
-<h1>DASHBOARD</h1>
+<%# <h3>DASHBOARD</h3> %>
 <%# utiliser current_user %>
-<ul>
+
+<div class="container">
+
+<div id="btn-bar">
+  <button id="button1" class="btn active toggle-button"><i class="fa-solid fa-calendar-check"></i> Reservations </button>
+  <button id="button2" class="btn toggle-button"><i class="fa-solid fa-house-circle-check"></i> Houses</button>
+</div>
+
+<%# Mes réservations %>
+<div id="div1" class= "content show">
+<div class="d-flex gap-2">
   <% @bookings.each do |booking| %>
-  <li><%= booking.house.name %></li>
-  <li>Arrivée : <%= booking.arrival_date %></li>
-  <li>Départ : <%= booking.departure_date %></li>
-  <li>Statut : <%= booking.status %></li>
-  <li>Price : <%= booking.price_total %> €</li>
-  <li>Annuler : <%= link_to 'Cancel', booking_path(booking), data: {turbo_method: :patch, turbo_confirm: 'Are you sure?'} %></li>
+    <%= render 'bookings/booking', booking: booking %>
   <% end %>
-</ul>
+</div>
+</div>
+
+<%# Mes maisons en location %>
+<div id="div2" class="content">
+<p>coucou</p>
+<div class="d-flex gap-2">
+  <% @houses.each do |house| %>
+    <%= render 'dashboards/house', house: house %>
+  <% end %>
+
+</div>
+
+</div>
