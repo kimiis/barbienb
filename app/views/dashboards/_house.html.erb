@@ -1,0 +1,14 @@
+<div class="card-dashboard">
+  <div class="card-header header-dash-booking">
+    <%= house.name %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Bedrooms : <%= house.bedroom %></h5>
+    <p class="card-text">Beds : <%= house.bed %></p>
+    <div class="d-flex justify-content-end">
+    <%= link_to house do %>
+    <i class="fa-solid fa-circle-info fa-lg" style="color: #fcfcfd;"></i>
+    <% end %>
+    </div>
+  </div>
+</div>

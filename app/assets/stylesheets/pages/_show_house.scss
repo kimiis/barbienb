@@ -1,86 +1,75 @@
-body {
-  background: rgb(238, 174, 202);
-  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
-}
-
-.house-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-}
-
-.house-images {
-  margin: 5rem;
-  margin-left: 8rem;
-  display: grid;
-  grid-template-areas:
-    "main-image secondary-image-1"
-    "main-image secondary-image-2"
-    "main-image secondary-image-3"
-    "main-image secondary-image-4";
-  grid-gap: 1rem;
-}
-
-.main-image {
-  grid-area: main-image;
-}
-
-.secondary-image:nth-child(2) {
-  grid-area: secondary-image-1;
-}
-
-.secondary-image:nth-child(3) {
-  grid-area: secondary-image-2;
-}
-
-.secondary-image:nth-child(4) {
-  grid-area: secondary-image-3;
-}
-
-.secondary-image:nth-child(5) {
-  grid-area: secondary-image-4;
-}
-
-.house-date-reservation {
-  width: 20rem;
-}
-
-.card-reservation {
-  background-color: pink;
-  width: 30rem;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-}
-
-.house-container-description {
-  background-color: pink;
-  width: 40rem;
-
-}
-
-.house-address {
-  font-family:  "Montserrat";
-  font-size: 2rem;
-  padding: 1rem;
-}
-
-.span-house {
-  padding: 1rem;
-}
-
-.description-text {
-  font-family:  "Montserrat";
-  font-size: 1.5rem;
-  padding: 1rem;
-}
-
-/* Basic Style */
-.container-house-image {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-rows: 200px;
+.show-container{
+  width: 100vh;
+  margin: 0 auto;
+  .house-content{
+    width: 100%;
+    .container-house-image{
+      height: 50vh;
+      display: flex;
+      gap: 10px;
+      .main-image{
+        flex: 1;
+        height: 100%;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      }
+      .secondary-images{
+        flex: 1;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        img{
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+      }
+    }
+    .house-main{
+      margin-top: 50px;
+      display: flex;
+      gap: 10px;
+      .house-data{
+        flex: 1.2;
+        .house-host{
+          i{
+            font-size: 30;
+          }
+        }
+        .specifications{
+          display: flex;
+          justify-content: space-between;
+          p{
+            font-size: 20px;
+            i{
+              font-size: 30px;
+              color: rgb(255, 0, 106);
+            }
+          }
+        }
+      }
+      .booking-form{
+        flex: .8;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.151);
+        background: rgba(255, 0, 106, 0.034);
+        .btn-reservation{
+          input{
+            width: 100%;
+            background: rgb(255, 0, 106);
+            color: #FFF;
+            border: 2px solid rgb(255, 0, 106);
+            border-radius: 2px;
+          }
+        }
+      }
+    }
+  }
 }
