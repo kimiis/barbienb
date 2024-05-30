@@ -7,7 +7,7 @@
   user-select: none;
   a {
     text-decoration: none;
-    color: #232323;
+    color: #e0218a;
     transition: all 0.3s ease;
     &:hover {
       color: hotpink  ;
@@ -31,7 +31,7 @@
     height: 4px;
     margin-bottom: 5px;
     position: relative;
-    background: #FF00BF;
+    background: #e0218a;
     border-radius: 3px;
     z-index: 1;
     transform-origin: 4px 0px;
@@ -52,7 +52,7 @@
     &:checked ~ span {
       opacity: 1;
       transform: rotate(45deg) translate(-2px, -1px);
-      background: #232323;
+      background: #e0218a;
       &:nth-last-child(3) {
         opacity: 0;
         transform: rotate(0deg) scale(0.2, 0.2);
@@ -73,7 +73,7 @@
   width: 20rem;
   padding: 3rem;
   padding-top: 10rem;
-  background: eeaeca;
+  background: #eeaeca;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   transform-origin: 0% 0%;
@@ -122,6 +122,46 @@
   color: #232323;
   transition: all 0.3s ease;
   &:hover {
-    color: #FF00BF;
+    color: #e0218a;
   }
+}
+
+
+//SEARCH BAR
+
+.search-container .form-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  background-color: pink;
+  width: 50rem;
+  margin: auto;
+  border-radius: 50px;
+  margin-bottom: 2rem;
+
+}
+
+.primary-btn {
+  background-color: #e0218a;
+  color: white;
+  border-radius: 100%;
+  margin-right: -4rem;
+}
+
+.primary-btn:hover {
+  background-color: #eeaeca;
+}
+
+.no-pad-left-10 {
+  padding-left: 10px;
+}
+
+.search-input{
+  width: 14rem;
+}
+
+.input-search{
+  border: none;
+  background-color: pink;
 }

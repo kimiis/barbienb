@@ -6,6 +6,11 @@ class HousesController < ApplicationController
   def index
     @houses = House.includes(:user).all
 
+    @houses = if params[:query].present?
+      House.search_by_address_date(params[:query])
+    else
+      House.all
+    end
     # The `geocoded` scope filters only flats with coordinates
     @markers = @houses.geocoded.map do |house|
       {
