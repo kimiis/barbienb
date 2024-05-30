@@ -1,0 +1,42 @@
+.card {
+  width: 20rem;
+  border-radius: 12px;
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 1rem;
+  filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.card-home{
+  width: 20rem;
+}
+
+.card-container {
+  width: 100%;
+  height: 100%;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-family: "Bartex";
+    text-shadow:
+    -2px 3px 0 #FF00BF,
+     1px -1px 0 #FF00BF,
+    -1px  1px 0 #FF00BF,
+     1px  1px 0 #FF00BF;
+  }
+}

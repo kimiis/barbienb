@@ -1,9 +1,11 @@
 class HousesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_house, only: %i[show destroy edit update]
 
   # get "houses/"
   def index
-    @houses = House.all
+    @houses = House.includes(:user).all
+
     # The `geocoded` scope filters only flats with coordinates
     @markers = @houses.geocoded.map do |house|
       {
@@ -12,6 +14,7 @@ class HousesController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: { house: house }),
         marker_html: render_to_string(partial: "marker")
       }
+      # raise
     end
   end
 
@@ -22,15 +25,13 @@ class HousesController < ApplicationController
   # get "houses/new"
   def new
     @house = House.new
-    user = User.all.sample
-    @house.user = user
+    @house.user = current_user
   end
 
   # post "houses/new"
   def create
     @house = House.new(house_params)
-    user = User.all.sample
-    @house.user = user
+    @house.user = current_user
     if @house.save
       redirect_to(house_path(@house))
     else
