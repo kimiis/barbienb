@@ -3,7 +3,8 @@ class HousesController < ApplicationController
 
   # get "houses/"
   def index
-    @houses = House.all
+    @houses = House.includes(:user).all
+
     # The `geocoded` scope filters only flats with coordinates
     @markers = @houses.geocoded.map do |house|
       {
@@ -12,6 +13,7 @@ class HousesController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: { house: house }),
         marker_html: render_to_string(partial: "marker")
       }
+      # raise
     end
   end
 
