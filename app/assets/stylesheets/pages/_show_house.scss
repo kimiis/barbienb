@@ -1,40 +1,88 @@
-body{
-  background: rgb(238,174,202);
-  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+body {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
 }
 
-.house-container{
+.house-container {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
 }
 
-.house-images{
+.house-images {
   margin: 5rem;
   margin-left: 8rem;
+  display: grid;
+  grid-template-areas:
+    "main-image secondary-image-1"
+    "main-image secondary-image-2"
+    "main-image secondary-image-3"
+    "main-image secondary-image-4";
+  grid-gap: 1rem;
 }
 
-.house-date-reservation{
+.main-image {
+  grid-area: main-image;
+}
+
+.secondary-image:nth-child(2) {
+  grid-area: secondary-image-1;
+}
+
+.secondary-image:nth-child(3) {
+  grid-area: secondary-image-2;
+}
+
+.secondary-image:nth-child(4) {
+  grid-area: secondary-image-3;
+}
+
+.secondary-image:nth-child(5) {
+  grid-area: secondary-image-4;
+}
+
+.house-date-reservation {
   width: 20rem;
 }
 
-.card-reservation{
+.card-reservation {
   background-color: pink;
   width: 30rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.house-container-description {
+  background-color: pink;
+  width: 40rem;
 
 }
 
-.house-container-description{
-  margin-left: 5rem;
+.house-address {
+  font-family:  "Montserrat";
+  font-size: 2rem;
+  padding: 1rem;
 }
 
-.house-address{
-  margin-left: 4rem;
+.span-house {
+  padding: 1rem;
 }
 
-span{
-  margin-left: 5rem;
+.description-text {
+  font-family:  "Montserrat";
+  font-size: 1.5rem;
+  padding: 1rem;
 }
 
-.house-description{
-  margin-left: 4rem;
+/* Basic Style */
+.container-house-image {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 200px;
 }
+
+
