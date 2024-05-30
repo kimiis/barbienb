@@ -1,6 +1,6 @@
 <%= simple_form_for(@house) do |f| %>
   <%= f.input(:name) %>
-  <%= f.input(:address) %>
+  <%= f.input(:address), label: "Full address" %>
   <%= f.input(:description) %>
   <%= f.input :images, as: :file, input_html: { multiple: true } %>
   <%= f.input(:price, input_html: {type: 'number'}) %>
@@ -11,6 +11,6 @@
   <%= f.input :bed, input_html: { type: 'number', min: 0 } %>
   <%= f.input :bedroom, input_html: { type: 'number', min: 0 } %>
   <%= f.input :bath, input_html: { type: 'number', min: 0 } %>
-  
+
   <%= f.submit %>
 <% end %>

@@ -1,0 +1,18 @@
+<div class="search-container">
+
+<%= simple_form_for :search, url: houses_path, method: :get, html: { class: "form-area", autocomplete: "off" } do |f| %>
+  <div class="row">
+    <div class="col-md-4 search-input">
+      <%= f.input :location, input_html: { class: "input-search", placeholder: "Lieu" } %>
+    </div>
+    <div class="col-md-4 search-input">
+      <%= f.input :check_in, as: :date,  html5: true, input_html: { class: "input-search", placeholder: "Date d'arrivée" }, wrapper: false %>
+    </div>
+    <div class="col-md-4 search-input">
+      <%= f.input :check_out, as: :date,  html5: true, input_html: { class: "input-search", placeholder: "Date de départ" }, wrapper: false %>
+    </div>
+  </div>
+  <%= f.button :submit, "Search", class: "primary-btn search-btn" %>
+<% end %>
+
+</div>

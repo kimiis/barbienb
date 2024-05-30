@@ -2,11 +2,19 @@
   width: 15rem;
   margin-left: 5rem;
   margin-top: -3rem;
+  aspect-ratio: 4 / 2;
+  object-fit: cover;
 }
 
-// .main-image{
-//   width: 40rem;
-// }
+.profil-nav{
+  width: 5rem;
+  filter: grayscale(17%);
+  width: 4rem;
+  height: 4rem;
+  position: fixed;
+  right: 12rem;
+  top: 2.8rem;
+}
 
 .house-image{
   width: 20rem;

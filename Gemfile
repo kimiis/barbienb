@@ -63,6 +63,7 @@ gem "devise"
 gem 'omniauth'
 gem 'omniauth-oauth2'
 gem 'faker'
+gem "pg_search"
 
 group :development, :test do
   gem "dotenv-rails"
