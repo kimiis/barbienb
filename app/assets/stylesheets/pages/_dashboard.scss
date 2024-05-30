@@ -1,8 +1,4 @@
-// .btn {
-// &.active {
-//   background: red;
-// }
-// }
+
 .toggle-button {
   padding: 10px 20px;
   margin: 5px;
@@ -25,12 +21,26 @@
   margin-bottom: 20px;
 }
 
-.card {
+.card-dash {
   background: radial-gradient(circle, rgb(234, 156, 189) 0%, rgb(130, 176, 229) 100%);
   border-radius: 10px;
 }
+.card-dash.flipped {
+  transform: rotateY(180deg);
+}
 
-.card:hover {
+
+.card-dashboard {
+  background: radial-gradient(circle, rgb(234, 156, 189) 0%, rgb(130, 176, 229) 100%);
+  border-radius: 10px;
+  padding: 10px;
+  width: 250px;
+  .header-dash-booking {
+    border-bottom: 1px solid white;
+  }
+}
+
+.card-dashboard:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   transition: 0.3s;
 }
@@ -40,6 +50,9 @@
 }
 .show {
   display: block;
-}
+  opacity: 1; // ici
 
-// d-flex gap-2
+  .card-dash-container {
+    perspective: 1000px;
+}
+}
