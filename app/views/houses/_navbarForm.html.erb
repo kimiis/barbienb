@@ -1,6 +1,6 @@
-<div class="search-container">
 
-<%= simple_form_for :search, url: houses_path, method: :get, html: { class: "form-area", autocomplete: "off" } do |f| %>
+
+<%= simple_form_for :search, url: root_path, method: :get, html: { class: "form-area", autocomplete: "off" } do |f| %>
   <div class="row">
     <div class="col-md-4 search-input">
       <%= f.input :location, input_html: { class: "input-search", placeholder: "Lieu" } %>
@@ -17,5 +17,3 @@
     <%= image_tag("search_icon.png", alt: "Search", class: "search-icon") %>
   <% end %>
 <% end %>
-
-</div>
