@@ -20,6 +20,7 @@
   justify-content:center;
   margin-bottom: 2rem;
   margin-top: 3rem;
+  font-family: "Montserrat";
 }
 
 
@@ -38,16 +39,17 @@
   color: #fff;
   margin-bottom: 1rem;
   text-align: left;
-  a {
-    text-decoration: none;
-    color: #fff;
-    font-family: "Bartex";
-    text-shadow:
-    -2px 3px 0 #FF00BF,
-     1px -1px 0 #FF00BF,
-    -1px  1px 0 #FF00BF,
-     1px  1px 0 #FF00BF;
-  }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      font-family: "Bartex";
+      text-shadow:
+      -2px 3px 0 #FF00BF,
+      1px -1px 0 #FF00BF,
+      -1px  1px 0 #FF00BF,
+      1px  1px 0 #FF00BF;
+    }
 }
 
 .card-map-home{
@@ -58,4 +60,18 @@
   object-fit: cover;
   object-position: center;
   margin-inline: 7rem;
+}
+
+.title-card-dashboard {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-align: left;
+  font-family: "Bartex";
+  text-shadow:
+  -2px 3px 0 #FF00BF,
+  1px -1px 0 #FF00BF,
+  -1px  1px 0 #FF00BF,
+  1px  1px 0 #FF00BF;
 }
