@@ -1,6 +1,6 @@
 <div class="show-container">
-  <div class="house-content">
     <h1><%= @house.name %></h1>
+  <div class="house-content">
     <div class="container-house-image">
       <%# <div class="container"> %>
         <% if @house.images.attached? %>
@@ -19,15 +19,17 @@
       </div>
       <div class="house-main">
         <div class="house-data">
-        <hr>
-        <p class="house-host">
-          <i class="fa-solid fa-user"></i><%= @house.user.username %>
-        </p>
-        <hr>
-        <div class=".house-description">
-          <%= content_tag :div, @house.description, class: "description-text" %>
-        </div>
-          <p><%= @house.address %></p>
+
+          <hr>
+            <p><%= @house.address %></p>
+          <hr>
+
+          <div class="house-host">
+            <%= image_tag "profil_barbie.png", class: "icon-host" %>
+            <%= @house.user.username %>
+          </div>
+
+          <hr>
           <div class="specifications">
             <p><i class="fa-solid fa-person"></i> <%= @house.guest %></p>
             <p><i class="fa-solid fa-person-booth"></i> <%= @house.bedroom %></p>
@@ -35,7 +37,15 @@
             <p><i class="fa-solid fa-bath"></i> <%= @house.bath %></p>
             <p><i class="fa-solid fa-dog"></i> <%= @house.pet ? "Oui" : "Non" %></p>
           </div>
+          <hr>
+          
+          <div class=".house-description">
+            <%= content_tag :div, @house.description, class: "description-text" %>
+          </div>
+
+
         </div>
+
         <div class="booking-form"  data-controller="display-booking-price" >
           <%= render 'bookings/form', house: @house, booking: @booking %>
         </div>

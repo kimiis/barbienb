@@ -85,7 +85,7 @@
 }
 
 .menu-burger {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #cbc9cb;
   .menu-icon {
     position: fixed;
     right: 0;
@@ -147,6 +147,8 @@
   color: white;
   border-radius: 100%;
   margin-right: -4rem;
+  border: none;
+  width: 5rem;
 }
 
 .primary-btn:hover {
@@ -164,4 +166,11 @@
 .input-search{
   border: none;
   background-color: pink;
+}
+
+.search-icon{
+  height: 5rem;
+  width: 4rem;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
 }
