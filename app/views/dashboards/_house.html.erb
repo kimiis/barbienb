@@ -1,6 +1,11 @@
 <div class="card-dashboard">
   <div class="card-header header-dash-booking">
-    <%= house.name %>
+    <div class="d-flex justify-content-between">
+      <%= house.name %>
+      <%= link_to house, data: { turbo_method: :delete} do %>
+        <i class="fa-solid fa-trash-can" style="color: #f83080;"></i>
+      <% end %>
+    </div>
   </div>
 
   <div class="card-body">
@@ -14,8 +19,9 @@
 
     <div class="d-flex justify-content-end">
       <%= link_to house do %>
-      <i class="fa-solid fa-circle-info fa-lg" style="color: #fcfcfd;"></i>
-    <% end %>
+
+        <i class="fa-solid fa-circle-info fa-lg" style="color: #fcfcfd;"></i>
+
     </div>
   </div>
 </div>

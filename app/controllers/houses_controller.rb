@@ -59,7 +59,7 @@ class HousesController < ApplicationController
   # post "houses/:id"
   def destroy
     @house.destroy
-    redirect_to(root_path)
+    redirect_to(dashboards_path)
   end
 
   def edit
