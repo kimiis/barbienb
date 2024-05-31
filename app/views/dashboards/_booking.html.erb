@@ -1,32 +1,29 @@
 <div class="card-container-dashboard">
-  <div class="card-container">
+  <div class="card">
 
-    <div class="card-header header-dash-booking">
+    <div class="house-image-div">
+      <%= link_to house_path(booking.house.id) do %>
+        <%= cl_image_tag booking.house.images.first.key, class: "house-image" %>
+      <% end %>
+    </div>
+
+    <div class="header-dash-booking">
       <em><%= booking.status %></em>
       <hr>
     </div>
 
-    <div class="card-title">
-      <%= booking.house.name %>
-    </div>
-
-    <div class="house-image-div">
-      <%= cl_image_tag(booking.house.images.first.key, class: "house-image") %>
-    </div>
-
     <div class="details-booking">
-        <p class="card-text">Arrival : <%= booking.arrival_date %></p>
-        <p class="card-text">Departure : <%= booking.departure_date %></p>
-        <p class="card-text">Price : <%= booking.price_total %></p>
-        <p class="card-text">Guests : <%= booking.guest %></p>
-        <p class="card-text">Animals : <%= booking.pet %></p>
-    </div>
+        <div class="title-card-dashboard">
+          <%= booking.house.name %>
+        </div>
 
-    <div class="d-flex justify-content-end">
-      <%= link_to house_path(booking.house) do %>
-        <i class="fa-solid fa-circle-info fa-lg" style="color: #fcfcfd;"></i>
-      <% end %>
+        <div class="details-booking">
+            <p class="card-text">Arrival : <%= booking.arrival_date %></p>
+            <p class="card-text">Departure : <%= booking.departure_date %></p>
+            <p class="card-text">Price : <%= booking.price_total %></p>
+            <p class="card-text">Guests : <%= booking.guest %></p>
+            <p class="card-text">Animals : <%= booking.pet %></p>
+        </div>
     </div>
-
   </div>
 </div>

@@ -3,27 +3,28 @@
 
 <div class="container">
 
-<div id="btn-bar">
-  <button id="button1" class="btn active toggle-button"><i class="fa-solid fa-calendar-check"></i> Reservations </button>
-  <button id="button2" class="btn toggle-button"><i class="fa-solid fa-house-circle-check"></i> Houses</button>
-</div>
+  <div id="btn-bar">
+    <button id="button1" class="btn active toggle-button"><i class="fa-solid fa-calendar-check"></i> Reservations </button>
+    <button id="button2" class="btn toggle-button"><i class="fa-solid fa-house-circle-check"></i> Houses</button>
+  </div>
 
-<%# Mes réservations %>
-<div id="div1" class= "content show">
-<div class="d-flex gap-2">
-  <% @bookings.each do |booking| %>
-    <%= render 'dashboards/booking', booking: booking %>
-  <% end %>
-</div>
-</div>
+  <%# My Bookings %>
+  <div id="div1" class= "content show">
+    <div class="d-flex gap-2">
+      <% @bookings.each do |booking| %>
+        <%= render 'dashboards/booking', booking: booking %>
+      <% end %>
+    </div>
+  </div>
 
-<%# Mes maisons en location %>
-<div id="div2" class="content">
-<div class="d-flex gap-2">
-  <% @houses.each do |house| %>
-    <%= render 'dashboards/house', house: house %>
-  <% end %>
+  <%# My houses %>
+  <div id="div2" class="content">
+    <div class="d-flex gap-2">
+      <% @houses.each do |house| %>
+        <%= render 'dashboards/house', house: house %>
+      <% end %>
 
-</div>
-
+    </div>
+  </div>
+  
 </div>

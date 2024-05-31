@@ -3,19 +3,17 @@
   <div class="house-content">
     <div class="container-house-image">
       <%# <div class="container"> %>
-        <% if @house.images.attached? %>
-          <% @house.images.each do |image| %>
-            <div class="main-image">
-              <%= cl_image_tag(image.key, class: "carrousel-image-booking") %>
-            </div>
-            <div class="secondary-images">
-              <%= cl_image_tag(image.key, class: "carrousel-image-booking") %>
-              <%= cl_image_tag(image.key, class: "carrousel-image-booking") %>
-              <%= cl_image_tag(image.key, class: "carrousel-image-booking") %>
-              <%= cl_image_tag(image.key, class: "carrousel-image-booking") %>
-            </div>
+      <% if @house.images.attached? %>
+        <div class="main-image">
+          <%= cl_image_tag(@house.images.first.key, class: "carrousel-image-booking") %>
+        </div>
+        <div class="secondary-images">
+          <% @house.images.each_with_index do |image, index| %>
+            <%= cl_image_tag(image.key, class: "carrousel-image-booking") unless index.zero? %>
           <% end %>
-        <% end %>
+        </div>
+      <% end %>
+
       </div>
       <div class="house-main">
         <div class="house-data">
@@ -38,7 +36,7 @@
             <p><i class="fa-solid fa-dog"></i> <%= @house.pet ? "Oui" : "Non" %></p>
           </div>
           <hr>
-          
+
           <div class=".house-description">
             <%= content_tag :div, @house.description, class: "description-text" %>
           </div>
