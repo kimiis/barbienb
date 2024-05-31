@@ -12,7 +12,10 @@
       <%= f.input :check_out, as: :date,  html5: true, input_html: { class: "input-search", placeholder: "Date de départ" }, wrapper: false %>
     </div>
   </div>
-  <%= f.button :submit, "Search", class: "primary-btn search-btn" %>
+
+   <%= button_tag(type: :submit, class: "primary-btn search-btn") do %>
+    <%= image_tag("search_icon.png", alt: "Search", class: "search-icon") %>
+  <% end %>
 <% end %>
 
 </div>
