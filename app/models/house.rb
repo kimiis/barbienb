@@ -1,4 +1,16 @@
 class House < ApplicationRecord
+  include PgSearch::Model
+
+  pg_search_scope :search_by_address_date,
+                  against: :address,
+                  associated_against: {
+                    bookings: [:arrival_date, :departure_date]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+
+                  }
+
   belongs_to :category
   belongs_to :user
 
@@ -20,14 +32,4 @@ class House < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-  include PgSearch::Model
-    pg_search_scope :search_by_address_date,
-    against: [:address, :departure_date, :arrival_date],
-    associated_against: {
-      user: [:username],
-      bookings: [:arrival_date, :departure_date]
-    },
-    using: {
-      tsearch: { prefix: true }
-    }
 end
