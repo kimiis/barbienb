@@ -10,20 +10,19 @@
 
 <%# bookings %>
 <div id="div1" class= "content show" data-dashboard-target="bookingsContainer">
-<div class="d-flex gap-2">
-  <% @bookings.each do |booking| %>
-    <%= render 'bookings/booking', booking: booking %>
-  <% end %>
-</div>
+  <div class="d-flex gap-2">
+    <% @bookings.each do |booking| %>
+      <%= render 'dashboards/booking', booking: booking %>
+    <% end %>
+  </div>
 </div>
 
 <%# houses %>
 <div id="div2" class="content" data-dashboard-target="housesContainer">
-<div class="d-flex gap-2">
-  <% @houses.each do |house| %>
-    <%= render 'dashboards/house', house: house %>
-  <% end %>
-
+  <div class="d-flex gap-2">
+    <% @houses.each do |house| %>
+      <%= render 'dashboards/house', house: house %>
+    <% end %>
+  </div>
 </div>
-
-</div>
+</>

@@ -1,0 +1,29 @@
+<div class="card-container-dashboard">
+  <div class="card">
+
+    <div class="house-image-div">
+      <%= link_to house_path(booking.house.id) do %>
+        <%= cl_image_tag booking.house.images.first.key, class: "house-image" %>
+      <% end %>
+    </div>
+
+    <div class="header-dash-booking">
+      <em><%= booking.status %></em>
+      <hr>
+    </div>
+
+    <div class="details-booking">
+        <div class="title-card-dashboard">
+          <%= booking.house.name %>
+        </div>
+
+        <div class="details-booking">
+            <p class="card-text">Arrival : <%= booking.arrival_date %></p>
+            <p class="card-text">Departure : <%= booking.departure_date %></p>
+            <p class="card-text">Price : <%= booking.price_total %></p>
+            <p class="card-text">Guests : <%= booking.guest %></p>
+            <p class="card-text">Animals : <%= booking.pet %></p>
+        </div>
+    </div>
+  </div>
+</div>
