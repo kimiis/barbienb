@@ -1,11 +1,11 @@
 <div class="container" data-controller="dashboard">
   <div id="btn-bar">
-    <button id="button1" class="btn active toggle-button"><i class="fa-solid fa-calendar-check"></i> Reservations </button>
-    <button id="button2" class="btn toggle-button"><i class="fa-solid fa-house-circle-check"></i> Houses</button>
+    <button class="btn active toggle-button" data-dashboard-target="bookingsBtn" data-action="click->dashboard#setActiveBookings"><i class="fa-solid fa-calendar-check"></i> Reservations </button>
+    <button class="btn toggle-button" data-dashboard-target="housesBtn" data-action="click->dashboard#setActiveHouses"><i class="fa-solid fa-house-circle-check"></i> Houses</button>
   </div>
 
   <%# My Bookings %>
-  <div id="div1" class= "content show">
+  <div id="div1" class= "content show" data-dashboard-target="bookingsContainer">
     <div class="d-flex gap-2">
       <% @bookings.each do |booking| %>
         <%= render 'dashboards/booking', booking: booking %>
@@ -14,12 +14,11 @@
   </div>
 
   <%# My houses %>
-  <div id="div2" class="content">
+  <div id="div2" class="content" data-dashboard-target="housesContainer">
     <div class="d-flex gap-2">
       <% @houses.each do |house| %>
         <%= render 'dashboards/house', house: house %>
       <% end %>
-
     </div>
   </div>
 
