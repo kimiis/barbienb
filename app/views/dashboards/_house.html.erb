@@ -1,27 +1,24 @@
-<div class="card-dashboard">
-  <div class="card-header header-dash-booking">
-    <div class="d-flex justify-content-between">
-      <%= house.name %>
+<div class="card-container-dashboard">
+  <div class="card">
+
+     <div class="house-image-div">
+      <%= link_to house_path(house.id) do %>
+        <%= cl_image_tag house.images.first.key, class: "house-image" %>
+      <% end %>
+    </div>
+
+    <div class="title-card-dashboard">
+      <%= house.name%>
+    </div>
+
+    <div class="details-booking">
+        <div class="details-booking">
+          <p class="card-text">Price : <%= house.price %> €/night</p>
+          <p class="card-text">Guests : <%= house.guest %></p>
+        </div>
+    </div>
       <%= link_to house, data: { turbo_method: :delete} do %>
         <i class="fa-solid fa-trash-can" style="color: #f83080;"></i>
       <% end %>
-    </div>
-  </div>
-
-  <div class="card-body">
-    <h5 class="card-title">
-      Bedrooms : <%= house.bedroom %>
-    </h5>
-
-    <p class="card-text">
-      Beds : <%= house.bed %>
-    </p>
-
-    <div class="d-flex justify-content-end">
-      <%= link_to house do %>
-
-        <i class="fa-solid fa-circle-info fa-lg" style="color: #fcfcfd;"></i>
-
-    </div>
   </div>
 </div>
