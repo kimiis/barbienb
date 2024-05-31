@@ -23,6 +23,10 @@
     opacity: 0;
     z-index: 2;
     -webkit-touch-callout: none;
+    &:foucus{
+      outline: 0;
+      background: 0;
+    }
   }
   span {
     position: relative;
@@ -169,7 +173,12 @@
 
 .input-search{
   border: none;
-  background-color: pink;
+  background: none;
+  &:focus{
+    background: none;
+    outline: 0;
+    border-color: transparent;
+  }
 }
 
 .search-icon{

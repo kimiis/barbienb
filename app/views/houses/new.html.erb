@@ -1,4 +1,5 @@
-<%= simple_form_for(@house) do |f| %>
+<div class="container">
+  <%= simple_form_for(@house) do |f| %>
   <%= f.input(:name) %>
   <%= f.input(:address) %>
   <%= f.input(:description) %>
@@ -12,5 +13,6 @@
   <%= f.input :bedroom, input_html: { type: 'number', min: 0 } %>
   <%= f.input :bath, input_html: { type: 'number', min: 0 } %>
 
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-primary"%>
 <% end %>
+</div>
